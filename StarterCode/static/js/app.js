@@ -38,10 +38,14 @@ d3.json("/StarterCode/samples.json").then(function (data) {
         });
         console.log(resultSample);
         var values = resultSample.sample_values;
+        var barTicks = resultSample.otu_ids.slice(0, 10).map((item)=>{
 
+            return `OTU ${item}`
+
+        });
         var trace = {
-            x: values.slice(0, 10),
-            y: resultSample.otu_ids.slice(0, 10),
+            x: values.slice(0, 10).reverse(),
+            y: barTicks.reverse(),
             type: 'bar',
             orientation: 'h'
 
