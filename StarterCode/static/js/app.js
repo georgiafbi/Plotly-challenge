@@ -40,7 +40,7 @@ function buildPanel(resultMeta, metadata) {
     var bar = d3.select("#bar");
     panel.html("");
     Object.entries(resultMeta).forEach(([key, value]) => {
-        panel.append("h6").text(`${key.toUpperCase()}: ${value}`).style("color", "Black").style("font-weight","bold");
+        panel.append("h6").text(`${key.toUpperCase()}: ${value}`).style("color", "Black").style("font-weight","bold").style("margin-left","10px");
 
     });
 
