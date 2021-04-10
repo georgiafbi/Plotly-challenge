@@ -47,6 +47,8 @@ function buildPanel(resultMeta, metadata) {
 }
 function buildHBar(resultSample, sample) {
     console.log(resultSample);
+    var otu_labels=resultSample.otu_labels;
+    console.log(otu_labels);
     var values = resultSample.sample_values;
     var barTicks = resultSample.otu_ids.slice(0, 10).map((item) => {
 
@@ -56,6 +58,7 @@ function buildHBar(resultSample, sample) {
     var traceBar = {
         x: values.slice(0, 10).reverse(),
         y: barTicks.reverse(),
+        text: otu_labels,
         type: 'bar',
         orientation: 'h'
 
@@ -115,13 +118,15 @@ function buildBubble(resultSample, sample) {
     var xAxisLength = xAxis.length;
     var markerColors = coloring(xAxisLength);
     var opacityNum = randomNum(xAxisLength);
-
+    var otu_labels=resultSample.otu_labels;
+    console.log(otu_labels);
     bubbleTrace = {
 
         x: xAxis,
         y: yAxis,
         mode: 'markers',
-        marker: { color: markerColors, opacity: opacityNum, size: yAxis }
+        marker: { color: markerColors, opacity: opacityNum, size: yAxis },
+        text:otu_labels
     }
 
     var bubbleData = [bubbleTrace];
