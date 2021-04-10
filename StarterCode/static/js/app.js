@@ -1,7 +1,7 @@
 //Fetch the JSON data and console log it.
 // var json_path="/StarterCode/samples.json"
 
-d3.json("/StarterCode/samples.json").then(function (data) {
+d3.json("StarterCode/samples.json").then(function (data) {
     buildDropDown(data);
     var initSubjectID = d3.select("#selDataset>option").node().value
     visualizations(data, initSubjectID);
